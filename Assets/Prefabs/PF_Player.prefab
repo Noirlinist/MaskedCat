@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.Jump.PlayerJump
   jumpForce: 15
   jumpCutMultiplier: 0.5
+  jumpBufferTime: 0.2
 --- !u!1 &4555080575139299830
 GameObject:
   m_ObjectHideFlags: 0

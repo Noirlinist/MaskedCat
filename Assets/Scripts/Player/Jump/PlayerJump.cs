@@ -9,9 +9,11 @@ namespace Player.Jump
         [Header("Jump Settings")]
         [SerializeField] private float jumpForce = 7f;
         [SerializeField] private float jumpCutMultiplier = 0.5f;
+        [SerializeField] private float jumpBufferTime = 0.15f;
         
         // Variables
         private bool _isGrounded;
+        private float _jumpBufferCounter;
         
         // Components
         private InputHandler _inputHandler;
@@ -51,14 +53,30 @@ namespace Player.Jump
         private void Update()
         {
             _isGrounded = _groundChecker.IsGrounded;
+
+            _jumpBufferCounter -= Time.deltaTime;
+
+            if (_jumpBufferCounter > 0 && _isGrounded)
+            {
+                PerformJump();
+            }
         }
 
         private void Jump()
         {
-            if (!_isGrounded) return;
-            
-            _rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            _jumpBufferCounter = jumpBufferTime;
         }
+        
+        private void PerformJump()
+        {
+            _rigidbody2D.linearVelocity = new Vector2(
+                _rigidbody2D.linearVelocity.x,
+                jumpForce
+            );
+
+            _jumpBufferCounter = 0;
+        }
+        
         private void CutJump()
         {
             if (_rigidbody2D.linearVelocity.y > 0)
