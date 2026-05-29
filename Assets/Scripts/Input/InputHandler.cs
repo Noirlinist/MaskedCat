@@ -10,9 +10,9 @@ namespace Input
         
         // ? Variables
         private Vector2 _movementInput;
+        public Vector2 MovementInput => _movementInput;
 
         // ? Events
-        public Action<Vector2> OnMove;
         public Action OnJump;
 
         // ? Components
@@ -36,7 +36,6 @@ namespace Input
         public void OnMoveInput(InputAction.CallbackContext context)
         {
             _movementInput = context.ReadValue<Vector2>();
-            OnMove?.Invoke(_movementInput);
         }
 
         public void OnJumpInput(InputAction.CallbackContext context)

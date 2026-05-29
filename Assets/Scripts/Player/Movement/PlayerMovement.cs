@@ -1,0 +1,37 @@
+using Input;
+using UnityEngine;
+
+namespace Player.Movement
+{
+    public class PlayerMovement : MonoBehaviour
+    {
+        [Header("Movement Settings")]
+        [SerializeField]  private float movementSpeed = 5f;
+        
+        // Variables
+        private Vector2 _movementInput;
+        
+        // Components
+        private InputHandler _inputHandler;
+        private Rigidbody2D _rigidbody2D;
+        
+        private void Start()
+        {
+            _inputHandler = InputHandler.Instance;
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            _movementInput = _inputHandler.MovementInput;
+            
+            if(_movementInput != Vector2.zero)
+                Move(_movementInput.x);
+        }
+
+        private void Move(float input)
+        {
+            _rigidbody2D.linearVelocityX = input * movementSpeed;
+        }
+    }
+}
