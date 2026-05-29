@@ -14,9 +14,7 @@ namespace Input
 
         // ? Events
         public Action OnJump;
-
-        // ? Components
-        private InputAction _inputAction;
+        public Action OnJumpReleased;
 
         private void Awake()
         {
@@ -29,8 +27,6 @@ namespace Input
             {
                 Destroy(gameObject);
             }
-            
-            _inputAction = new InputAction();
         }
 
         public void OnMoveInput(InputAction.CallbackContext context)
@@ -43,6 +39,11 @@ namespace Input
             if (context.performed)
             {
                 OnJump?.Invoke();
+            }
+
+            if (context.canceled)
+            {
+                OnJumpReleased?.Invoke();
             }
         }
     }
