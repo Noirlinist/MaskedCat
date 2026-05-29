@@ -10,10 +10,12 @@ namespace Player.Jump
         [SerializeField] private float jumpForce = 7f;
         [SerializeField] private float jumpCutMultiplier = 0.5f;
         [SerializeField] private float jumpBufferTime = 0.15f;
+        [SerializeField] private float coyoteTime = 0.15f;
         
         // Variables
         private bool _isGrounded;
         private float _jumpBufferCounter;
+        private float _coyoteTimeCounter;
         
         // Components
         private InputHandler _inputHandler;
@@ -50,13 +52,22 @@ namespace Player.Jump
             }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             _isGrounded = _groundChecker.IsGrounded;
-
+            
+            if (_isGrounded)
+            {
+                _coyoteTimeCounter = coyoteTime;
+            }
+            else
+            {
+                _coyoteTimeCounter -= Time.deltaTime;
+            }
+            
             _jumpBufferCounter -= Time.deltaTime;
-
-            if (_jumpBufferCounter > 0 && _isGrounded)
+            
+            if (_jumpBufferCounter > 0 && _coyoteTimeCounter > 0)
             {
                 PerformJump();
             }
@@ -75,6 +86,7 @@ namespace Player.Jump
             );
 
             _jumpBufferCounter = 0;
+            _coyoteTimeCounter = 0;
         }
         
         private void CutJump()
