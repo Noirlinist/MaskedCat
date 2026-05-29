@@ -41,10 +41,7 @@ namespace Player.Movement
 
         private void HandleAnimation()
         {
-            if (_rigidbody2D.linearVelocity.x > 0.01 || _rigidbody2D.linearVelocity.x < -0.01)
-            {
-                
-            }
+            _animator.SetFloat("movementSpeed", _rigidbody2D.linearVelocityX);
         }
         
         private void HandleRotation()
