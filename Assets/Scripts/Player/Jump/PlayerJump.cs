@@ -1,6 +1,7 @@
 using Input;
 using UnityEngine;
 using Tools;
+using System;
 
 namespace Player.Jump
 {
@@ -16,6 +17,9 @@ namespace Player.Jump
         private bool _isGrounded;
         private float _jumpBufferCounter;
         private float _coyoteTimeCounter;
+        
+        // Events
+        public static event Action OnPlayerJump;
         
         // Components
         private InputHandler _inputHandler;
@@ -84,6 +88,7 @@ namespace Player.Jump
                 _rigidbody2D.linearVelocity.x,
                 jumpForce
             );
+            OnPlayerJump?.Invoke();
 
             _jumpBufferCounter = 0;
             _coyoteTimeCounter = 0;
