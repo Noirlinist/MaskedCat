@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8003792847342064911}
   - component: {fileID: 1072541884704913942}
   - component: {fileID: -6593209313897005343}
-  m_Layer: 0
-  m_Name: PF_Toggleable
+  - component: {fileID: 44404441611012778}
+  m_Layer: 6
+  m_Name: PF_Toggleable_Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.13475144, g: 0.6403354, b: 0.14657035, a: 1}
+  m_Color: {r: 0.754717, g: 0.15307939, b: 0.44046468, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -138,3 +139,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &44404441611012778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7612991288249588807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5299b2fdcf4f703ebbc46676716cb0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.JumpTogglePlatform
+  initialState: 1
