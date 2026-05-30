@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe8e0fdcfa559e38b93a03877e6de8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Jump.PlayerJump
-  jumpForce: 15
+  jumpForce: 18
   jumpCutMultiplier: 0.5
   jumpBufferTime: 0.2
   coyoteTime: 0.15
