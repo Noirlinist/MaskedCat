@@ -25,6 +25,7 @@ namespace Player.Jump
         private InputHandler _inputHandler;
         private GroundChecker _groundChecker;
         private Rigidbody2D _rigidbody2D;
+        private Animator _animator;
 
         private void Awake()
         {
@@ -35,6 +36,8 @@ namespace Player.Jump
             _rigidbody2D = GetComponent<Rigidbody2D>();
             if (_rigidbody2D == null)
                 Debug.LogError($"{nameof(_rigidbody2D)} is null");
+            
+            _animator = GetComponent<Animator>();
         }
         
         private void Start()
@@ -75,6 +78,8 @@ namespace Player.Jump
             {
                 PerformJump();
             }
+
+            HandleAnimation();
         }
 
         private void Jump()
@@ -103,6 +108,11 @@ namespace Player.Jump
                     _rigidbody2D.linearVelocity.y * jumpCutMultiplier
                 );
             }
+        }
+
+        private void HandleAnimation()
+        {
+            _animator.SetBool("isGrounded",  _isGrounded);
         }
     }
 }

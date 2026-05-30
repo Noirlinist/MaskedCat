@@ -14,16 +14,21 @@ namespace Player.Movement
         // Components
         private InputHandler _inputHandler;
         private Rigidbody2D _rigidbody2D;
+        private Animator _animator;
         
         private void Start()
         {
             _inputHandler = InputHandler.Instance;
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
         }
 
         private void Update()
         {
             _movementInput = _inputHandler.MovementInput;
+
+            HandleRotation();
+            HandleAnimation();
             
             if(_movementInput != Vector2.zero)
                 Move(_movementInput.x);
@@ -32,6 +37,24 @@ namespace Player.Movement
         private void Move(float input)
         {
             _rigidbody2D.linearVelocityX = input * movementSpeed;
+        }
+
+        private void HandleAnimation()
+        {
+            _animator.SetFloat("movementSpeed", _rigidbody2D.linearVelocityX);
+        }
+        
+        private void HandleRotation()
+        {
+            if (_rigidbody2D.linearVelocityX < 0)
+            {
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            }
+
+            if (_rigidbody2D.linearVelocityX > 0)
+            {
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            }
         }
     }
 }
