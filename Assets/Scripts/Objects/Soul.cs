@@ -6,7 +6,7 @@ public class Soul : MonoBehaviour
     {
         if(other.gameObject.name == "PF_Player")
         {
-            SoulManager.Instance.SoulCount++;
+            SoulManager.Instance.SoulCount += 1;
             Destroy(gameObject);
         }
     }

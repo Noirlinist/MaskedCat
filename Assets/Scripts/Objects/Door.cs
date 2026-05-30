@@ -18,10 +18,5 @@ namespace Objects
 
             SoulManager.Instance.OnAllSoulCollected -= Toggle;
         }
-
-        private void Toggle(bool state)
-        {
-            gameObject.SetActive(!state);
-        }
     }
 }
