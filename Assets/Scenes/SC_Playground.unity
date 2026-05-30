@@ -906,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5526849188282418132, guid: eaaf6829d4d73b6858d8962258b98dc6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1143,6 +1143,10 @@ PrefabInstance:
     - target: {fileID: 7829181015832845062, guid: 3c766e84570e7b6eea5adbaf670c10b7, type: 3}
       propertyPath: m_Name
       value: GardenTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829181015832845062, guid: 3c766e84570e7b6eea5adbaf670c10b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
