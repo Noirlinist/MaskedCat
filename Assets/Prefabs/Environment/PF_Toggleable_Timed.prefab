@@ -154,6 +154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.TimedTogglePlatform
   initialState: 1
   config: {fileID: 11400000, guid: d1d5a11d659914f72bd385071c800bef, type: 2}
+  bellSFX:
+    Guid:
+      Data1: -711872375
+      Data2: 1250578809
+      Data3: 760400299
+      Data4: 650970390
+    Path: event:/SFX/sfx_env_platform_bell
 --- !u!1001 &1154513962405959570
 PrefabInstance:
   m_ObjectHideFlags: 0

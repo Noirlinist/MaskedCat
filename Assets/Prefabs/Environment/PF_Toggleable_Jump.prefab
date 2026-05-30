@@ -153,6 +153,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.JumpTogglePlatform
   initialState: 1
+  fogSFX:
+    Guid:
+      Data1: 77627801
+      Data2: 1263527185
+      Data3: 558873241
+      Data4: 386428585
+    Path: event:/SFX/sfx_env_platform_rock
 --- !u!1001 &6360409654000162183
 PrefabInstance:
   m_ObjectHideFlags: 0

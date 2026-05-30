@@ -2,6 +2,8 @@ using Input;
 using UnityEngine;
 using Tools;
 using System;
+using FMODUnity;
+using Managers;
 
 namespace Player.Jump
 {
@@ -12,7 +14,8 @@ namespace Player.Jump
         [SerializeField] private float jumpCutMultiplier = 0.5f;
         [SerializeField] private float jumpBufferTime = 0.15f;
         [SerializeField] private float coyoteTime = 0.15f;
-        
+        [SerializeField] private EventReference jumpSFX;
+
         // Variables
         private bool _isGrounded;
         private float _jumpBufferCounter;
@@ -93,6 +96,11 @@ namespace Player.Jump
                 _rigidbody2D.linearVelocity.x,
                 jumpForce
             );
+            SoundManager.Instance.PlayOneShot(
+                jumpSFX,
+                transform.position
+            );
+
             OnPlayerJump?.Invoke();
 
             _jumpBufferCounter = 0;

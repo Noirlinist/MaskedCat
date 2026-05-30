@@ -202,6 +202,13 @@ MonoBehaviour:
   jumpCutMultiplier: 0.5
   jumpBufferTime: 0.2
   coyoteTime: 0.15
+  jumpSFX:
+    Guid:
+      Data1: 1668664118
+      Data2: 1210266630
+      Data3: 612814013
+      Data4: 604489154
+    Path: event:/SFX/sfx_cat_jump
 --- !u!95 &-980316341345231265
 Animator:
   serializedVersion: 7
