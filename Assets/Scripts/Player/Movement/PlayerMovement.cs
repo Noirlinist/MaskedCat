@@ -29,6 +29,9 @@ namespace Player.Movement
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
             _groundChecker = GetComponentInChildren<GroundChecker>();
+            
+            poofParticle.Stop();
+            _isPlayingParticles = false;
         }
 
         private void Update()

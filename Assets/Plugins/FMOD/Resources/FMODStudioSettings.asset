@@ -536,8 +536,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../Documents/Assets/MaskedCat/MaskedCat.fspro
-  sourceBankPath: ../../../Documents/Assets/MaskedCat/Build
+  sourceProjectPath: ../../Assets/MaskedCat/MaskedCat/MaskedCat.fspro
+  sourceBankPath: ../../Assets/MaskedCat/MaskedCat/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
