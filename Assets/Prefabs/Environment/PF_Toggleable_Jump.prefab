@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.JumpTogglePlatform
   initialState: 1
+  opacityWhenInactive: 0.01
   fogSFX:
     Guid:
       Data1: 77627801

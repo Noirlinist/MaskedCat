@@ -6,10 +6,11 @@ namespace Objects
     {
         [Header("Object Settings")]
         [SerializeField] private bool initialState = true;
-        
+        [SerializeField] private float opacityWhenInactive = 0.1f;
+
         // Variables
         protected bool IsActive;
-        
+
         // Components
         private Collider2D _collider;
         private SpriteRenderer _spriteRenderer;
@@ -34,7 +35,7 @@ namespace Objects
         {
             SetState(initialState);
         }
-        
+
         protected virtual void Toggle()
         {
             SetState(!IsActive);
@@ -44,11 +45,13 @@ namespace Objects
         {
             IsActive = state;
             _collider.enabled = IsActive;
-            
+
             // Visuals
             if (_spriteRenderer != null)
             {
-                _spriteRenderer.enabled = IsActive;
+                Color currentColor = _spriteRenderer.color;
+                currentColor.a = IsActive ? 1.0f : opacityWhenInactive;
+                _spriteRenderer.color = currentColor;
             }
         }
     }
