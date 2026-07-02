@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Movement.PlayerMovement
   movementSpeed: 6
+  lerpAmount: 0.7
 --- !u!114 &5220833546105530437
 MonoBehaviour:
   m_ObjectHideFlags: 0

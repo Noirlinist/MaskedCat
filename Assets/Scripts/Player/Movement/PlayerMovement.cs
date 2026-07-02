@@ -8,6 +8,7 @@ namespace Player.Movement
     {
         [Header("Movement Settings")]
         [SerializeField] private float movementSpeed = 5f;
+        [Range(0f, 1f)][SerializeField] private float lerpAmount = 0.2f;
 
         // Variables
         private Vector2 _movementInput;
@@ -30,14 +31,18 @@ namespace Player.Movement
 
             HandleRotation();
             HandleVisuals();
+        }
 
-            if (_movementInput != Vector2.zero)
-                Move(_movementInput.x);
+        private void FixedUpdate()
+        {
+            Move(_movementInput.x);
         }
 
         private void Move(float input)
         {
-            _rigidbody2D.linearVelocityX = input * movementSpeed;
+            float targetSpeed = input * movementSpeed;
+
+            _rigidbody2D.linearVelocityX = Mathf.Lerp(_rigidbody2D.linearVelocityX, targetSpeed, lerpAmount);
         }
 
         private void HandleVisuals()
@@ -47,12 +52,11 @@ namespace Player.Movement
 
         private void HandleRotation()
         {
-            if (_rigidbody2D.linearVelocityX < 0)
+            if (_movementInput.x < 0)
             {
                 transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             }
-
-            if (_rigidbody2D.linearVelocityX > 0)
+            else if (_movementInput.x > 0)
             {
                 transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
             }
