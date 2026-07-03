@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: FastToggleTimerConfig
   m_EditorClassIdentifier: Assembly-CSharp::Objects.ToggleTimerConfig
   interval: 2
+  soundAnticipationTime: 0.4

@@ -10,19 +10,25 @@ namespace Objects
         [SerializeField] private EventReference bellSFX;
 
         private float _timer;
+        private bool _hasPlayedWarning;
 
         private void Update()
         {
             _timer += Time.deltaTime;
 
+            float timeToPlaySound = config.interval - config.soundAnticipationTime;
+
+            if (_timer >= timeToPlaySound && !_hasPlayedWarning)
+            {
+                SoundManager.Instance.PlayOneShot(bellSFX, transform.position);
+                _hasPlayedWarning = true;
+            }
+
             if (_timer >= config.interval)
             {
                 _timer = 0;
-                SoundManager.Instance.PlayOneShot(
-                bellSFX,
-                transform.position
-                );
-            
+                _hasPlayedWarning = false;
+
                 Toggle();
             }
         }
