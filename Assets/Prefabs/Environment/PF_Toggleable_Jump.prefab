@@ -161,7 +161,7 @@ MonoBehaviour:
       Data2: 1263527185
       Data3: 558873241
       Data4: 386428585
-    Path: event:/SFX/sfx_env_platform_rock
+    Path: event:/SFX/SFX_Platform_Rock
 --- !u!251 &2469749753766954579
 PlatformEffector2D:
   m_ObjectHideFlags: 0

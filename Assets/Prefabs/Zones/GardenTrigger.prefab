@@ -91,10 +91,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1380f572ac5a155b73b35a061ed312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.MusicZoneTrigger
-  musicEvent:
-    Guid:
-      Data1: 1036888684
-      Data2: 1239085075
-      Data3: 803823511
-      Data4: -1520767112
-    Path: event:/Music/BMG_Garden
+  musicStateValue: 3
