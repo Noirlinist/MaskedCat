@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
@@ -9,14 +8,10 @@ namespace Managers
     {
         public static SoundManager Instance { get; private set; }
 
-        [Header("Music Settings")]
-        [SerializeField] private float fadeDuration = 2f;
+        [Header("FMOD Event Reference")]
+        [SerializeField] private EventReference globalMusicEvent;
 
-        // Variables
-        private EventInstance _currentMusicInstance;
-        private EventReference _currentMusic;
-
-        private Coroutine _musicCoroutine;
+        private EventInstance _musicInstance;
 
         private void Awake()
         {
@@ -31,93 +26,42 @@ namespace Managers
             }
         }
 
-        // =========================
-        // SFX
-        // =========================
-
-        public void PlayOneShot(EventReference sound, Vector3 worldPosition = default)
+        private void Start()
         {
-            RuntimeManager.PlayOneShot(sound, worldPosition);
+            StartGlobalMusic();
         }
 
-        // =========================
-        // MUSIC
-        // =========================
-
-        public void PlayMusic(EventReference musicEvent)
+        private void StartGlobalMusic()
         {
-            // Prevent restarting same music
-            if (_currentMusic.Guid == musicEvent.Guid)
-                return;
+            if (globalMusicEvent.IsNull) return;
 
-            // Stop previous transition if exists
-            if (_musicCoroutine != null)
-            {
-                StopCoroutine(_musicCoroutine);
-            }
-
-            _musicCoroutine = StartCoroutine(
-                CrossfadeMusic(musicEvent)
-            );
+            _musicInstance = RuntimeManager.CreateInstance(globalMusicEvent);
+            _musicInstance.start();
         }
 
-        private IEnumerator CrossfadeMusic(EventReference newMusic)
+        public void ChangeMusicState(float stateValue)
         {
-            EventInstance oldMusic = _currentMusicInstance;
+            if (!_musicInstance.isValid()) return;
 
-            // Create new music instance
-            EventInstance newMusicInstance =
-                RuntimeManager.CreateInstance(newMusic);
-
-            // Start muted
-            newMusicInstance.setVolume(0f);
-            newMusicInstance.start();
-
-            float timer = 0f;
-
-            while (timer < fadeDuration)
-            {
-                timer += Time.deltaTime;
-
-                float t = Mathf.Clamp01(timer / fadeDuration);
-
-                // Fade in new music
-                newMusicInstance.setVolume(t);
-
-                // Fade out old music
-                if (oldMusic.isValid())
-                {
-                    oldMusic.setVolume(1f - t);
-                }
-
-                yield return null;
-            }
-
-            // Cleanup old music
-            if (oldMusic.isValid())
-            {
-                oldMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                oldMusic.release();
-            }
-
-            // Ensure full volume
-            newMusicInstance.setVolume(1f);
-
-            // Save new music
-            _currentMusicInstance = newMusicInstance;
-            _currentMusic = newMusic;
+            _musicInstance.setParameterByName("GameState", stateValue);
         }
 
         public void StopMusic()
         {
-            if (_currentMusicInstance.isValid())
+            if (_musicInstance.isValid())
             {
-                _currentMusicInstance.stop(
-                    FMOD.Studio.STOP_MODE.ALLOWFADEOUT
-                );
-
-                _currentMusicInstance.release();
+                _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                _musicInstance.release();
             }
+        }
+
+        // =========================
+        // SFX
+        // =========================
+        public void PlayOneShot(EventReference sound, Vector3 worldPosition = default)
+        {
+            if (sound.IsNull) return;
+            RuntimeManager.PlayOneShot(sound, worldPosition);
         }
     }
 }

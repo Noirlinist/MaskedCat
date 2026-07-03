@@ -7,11 +7,10 @@ public class SoulManager : MonoBehaviour
 
     // Variables
     public int SoulCount;
-    private int _maxSouls;
-    private bool _isAllSoulsCollected;
+    [SerializeField] private int _maxSouls = 2;
 
     // Events
-    public Action<bool> OnAllSoulCollected;
+    public Action OnAllSoulCollected;
 
     private void Awake()
     {
@@ -36,8 +35,6 @@ public class SoulManager : MonoBehaviour
 
     public void HandleAllSoulCollected()
     {
-        _isAllSoulsCollected = true;
-
-        OnAllSoulCollected?.Invoke(_isAllSoulsCollected);
+        OnAllSoulCollected?.Invoke();
     }
 }

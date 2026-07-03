@@ -5,23 +5,22 @@ namespace Objects
 {
     public class Door : ToggleableObject
     {
-        protected override void OnEnable()
+        protected override void Start()
         {
             base.OnEnable();
 
             SoulManager.Instance.OnAllSoulCollected += Toggle;
         }
 
-        protected override void OnDisable()
+        protected void OnDestroy()
         {
-            base.OnDisable();
 
             SoulManager.Instance.OnAllSoulCollected -= Toggle;
         }
 
-        private void Toggle(bool state)
+        protected override void Toggle()
         {
-            gameObject.SetActive(!state);
+            gameObject.SetActive(false);
         }
     }
 }

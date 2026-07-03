@@ -19,11 +19,18 @@ namespace Objects
         protected override void OnDisable()
         {
             base.OnDisable();
+            
+            PlayerJump.OnPlayerJump -= Toggle;
+        }
+
+        protected override void Toggle()
+        {
+            base.Toggle();
+
             SoundManager.Instance.PlayOneShot(
                 fogSFX,
                 transform.position
             );
-            PlayerJump.OnPlayerJump -= Toggle;
         }
     }
 }

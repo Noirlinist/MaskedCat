@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5195166135207775849}
   - component: {fileID: 7119185579535433332}
   - component: {fileID: 2090241903801420626}
+  - component: {fileID: 8146012160408927296}
   m_Layer: 6
   m_Name: PF_Toggleable_Timed
   m_TagString: Untagged
@@ -125,7 +126,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.TimedTogglePlatform
   initialState: 1
+  opacityWhenInactive: 0.1
   config: {fileID: 11400000, guid: d1d5a11d659914f72bd385071c800bef, type: 2}
   bellSFX:
     Guid:
@@ -160,7 +162,26 @@ MonoBehaviour:
       Data2: 1250578809
       Data3: 760400299
       Data4: 650970390
-    Path: event:/SFX/sfx_env_platform_bell
+    Path: event:/SFX/SFX_Platform_Bell
+--- !u!251 &8146012160408927296
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126648075576423322}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &1154513962405959570
 PrefabInstance:
   m_ObjectHideFlags: 0
