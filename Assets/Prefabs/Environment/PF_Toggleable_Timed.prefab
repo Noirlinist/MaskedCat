@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7119185579535433332}
   - component: {fileID: 2090241903801420626}
   - component: {fileID: 8146012160408927296}
+  - component: {fileID: 6011944599436437013}
   m_Layer: 6
   m_Name: PF_Toggleable_Timed
   m_TagString: Untagged
@@ -81,16 +82,16 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 952456841
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: cb62f1111cd4b8f4d9da98fca98e9ed7, type: 3}
-  m_Color: {r: 0.20664872, g: 0.6326451, b: 0.89331543, a: 1}
+  m_Color: {r: 0.80769956, g: 0.49964023, b: 0.1721735, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
@@ -134,12 +135,12 @@ BoxCollider2D:
     border: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 1
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &2090241903801420626
 MonoBehaviour:
@@ -178,10 +179,63 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 127
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &6011944599436437013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8126648075576423322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000008954736e8956c5388f6ada1c991d952a
+  m_ShapePath:
+  - {x: -0.5, y: -0.25, z: 0}
+  - {x: -0.5, y: 0.25, z: 0}
+  - {x: 0.5, y: 0.25, z: 0}
+  - {x: 0.5, y: -0.25, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 7119185579535433332}
+  m_ShadowShape2DProvider:
+    rid: 7014136698276413523
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.47999573, y: 0.22999573, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.02
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.02
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 7119185579535433332}
+  references:
+    version: 2
+    RefIds:
+    - rid: 7014136698276413523
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!1001 &1154513962405959570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,6 +287,30 @@ PrefabInstance:
     - target: {fileID: 5131860406789776527, guid: 49ebcf944519f244d88d893be4bffb88, type: 3}
       propertyPath: m_Name
       value: VFX_Wisp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942532287195946734, guid: 49ebcf944519f244d88d893be4bffb88, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.17254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942532287195946734, guid: 49ebcf944519f244d88d893be4bffb88, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942532287195946734, guid: 49ebcf944519f244d88d893be4bffb88, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942532287195946734, guid: 49ebcf944519f244d88d893be4bffb88, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.14541127
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942532287195946734, guid: 49ebcf944519f244d88d893be4bffb88, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.34021696
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942532287195946734, guid: 49ebcf944519f244d88d893be4bffb88, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.52563447
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
