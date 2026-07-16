@@ -3,8 +3,8 @@ guid: 87e09f9ef025e2546b1680a2cbc2ac24
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8629438373382098694
-    second: plataforma_Nube_192x192_0
+      213: 6855098181237307069
+    second: SPR_Platform_Bones_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,11 +48,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 192
-  spriteBorder: {x: 63, y: 63, z: 63, w: 63}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 50, y: 31, z: 50, w: 31}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plataforma_Nube_192x192_0
+      name: SPR_Platform_Bones_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 192
+        width: 256
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 50, y: 31, z: 50, w: 31}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 60f8098da7ce1c770800000000000000
-      internalID: 8629438373382098694
+      spriteID: db67319d973322f50800000000000000
+      internalID: 6855098181237307069
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 43018f6213905c92ab94a68cf9eaca33
+    internalID: 1743099056
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plataforma_Nube_192x192_0: 8629438373382098694
+      SPR_Platform_Bones_0: 6855098181237307069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
